@@ -4,7 +4,7 @@
   "oraclePermission": "active",
   "privateKey": "    THE KEY       ",
   "contractAccount": "randomtester",
-  "contractAction": "submitrand"
+  "contractAction": "submitrand",
   "requestsTable": "requests",
   "requestIdProperty": "request_id"
 }

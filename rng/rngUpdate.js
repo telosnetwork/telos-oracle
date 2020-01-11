@@ -37,7 +37,7 @@ const api = new Api({
 
     const signer = new NumberSigner(pk)
     if (rows.rows.length < 1) {
-        console.log('No rows')
+        console.log('No requests')
         return false
     }
 
