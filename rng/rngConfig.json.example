@@ -1,0 +1,10 @@
+{
+  "nodeUrl": "https://telos.caleos.io",
+  "oracleName": "telosoracle1",
+  "oraclePermission": "active",
+  "privateKey": "    THE KEY       ",
+  "contractAccount": "randomtester",
+  "contractAction": "submitrand"
+  "requestsTable": "requests",
+  "requestIdProperty": "request_id"
+}

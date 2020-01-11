@@ -1,0 +1,8 @@
+{
+  "nodeUrl": "https://telos.caleos.io",
+  "oracleName": "caleosblocks",
+  "oraclePermission": "active",
+  "privateKey": "    THE KEY       ",
+  "contractAccount": "delphioracle",
+  "contractAction": "write"
+}
