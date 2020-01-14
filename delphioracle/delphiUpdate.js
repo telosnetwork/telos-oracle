@@ -24,19 +24,30 @@ const api = new Api({
     textEncoder: new util.TextEncoder()
 });
 
-const telosCoingecko = 'https://api.coingecko.com/api/v3/simple/price?ids=telos&vs_currencies=EOS,USD'
+const telosCoingecko = 'https://api.coingecko.com/api/v3/simple/price?ids=telos&vs_currencies=EOS,USD,BTC'
 
 doQuotes()
 
-async function getTLOSUSD() {
+async function getPrices() {
     const coingeckoReply = await axios.get(telosCoingecko)
-    const tlosusd = coingeckoReply.data.telos.usd;
-    return tlosusd
+    const usd = coingeckoReply.data.telos.usd;
+    const btc = coingeckoReply.data.telos.btc;
+    const eos = coingeckoReply.data.telos.eos;
+    return { usd, btc, eos }
 }
 
 async function doQuotes() {
-    const tlosusd = await getTLOSUSD()
-    const quotes = [{ "value": parseInt(Math.round(tlosusd * 10000)), pair: "tlosusd" }];
+    const prices = await getPrices()
+    const quotes = [{
+        "pair": "tlosusd",
+        "value": parseInt(Math.round(prices.usd * 10000))
+    }, {
+        "pair": "tlosbtc",
+        "value": parseInt(Math.round(prices.btc * 100000000))
+    }, {
+        "pair": "tloseos",
+        "value": parseInt(Math.round(prices.eos * 10000))
+    }];
     await sendActions([{
         account: contractAccount,
         name: contractAction,
